@@ -4,6 +4,8 @@ function Card(id, name) {
 	
 	this.id = id;
 	this.name = name || 'No name given';
+	this.element = createCard();
+
 
 	function createCard() {
 		var card = $('<li class="card"></li>');
