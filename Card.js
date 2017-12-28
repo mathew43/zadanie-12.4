@@ -1,10 +1,9 @@
 // KLASA KANBAN CARD
-function Card(description) {
+function Card(id, name) {
 	var self = this;
 	
-	this.id = randomString();
-	this.description = description;
-	this.element = createCard();
+	this.id = id;
+	this.name = name || 'No name given';
 
 	function createCard() {
 		var card = $('<li class="card"></li>');
