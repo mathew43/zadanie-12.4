@@ -15,13 +15,20 @@ function Card(id, name) {
 		});
 		
 		card.append(cardDeleteBtn);
-		cardDescription.text(self.description);
+		cardDescription.text(self.name);
 		card.append(cardDescription)
 		return card;
 	}
 }
 Card.prototype = {
 	removeCard: function() {
-	  this.element.remove();
+	  var self = this;
+	  $.ajax({
+	  	url: baseUrl + '/card/' + self.id,
+	  	method: 'DELETE',
+	  	success: function(){
+	  		self.element.remove();
+	  	}
+	  });
 	}
 }
